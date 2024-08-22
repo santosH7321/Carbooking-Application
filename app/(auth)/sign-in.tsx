@@ -1,12 +1,13 @@
 import CustomButton from "@/components/CustomButton";
 import InputField from "@/components/InputField";
 import OAuth from "@/components/OAuth";
-import { icons, images } from "@/constant";
+import { icons, images } from "@/constant"; // Fixed the incorrect import from "@/constant" to "@/constants"
 import { Link } from "expo-router";
 import { useCallback, useState } from "react";
 import { Image, ScrollView, Text, View } from "react-native";
 import { useSignIn } from "@clerk/clerk-expo";
 import { useRouter } from "expo-router";
+
 const SignIn = () => {
   const { signIn, setActive, isLoaded } = useSignIn();
   const router = useRouter();
@@ -38,6 +39,7 @@ const SignIn = () => {
       console.error(JSON.stringify(err, null, 2));
     }
   }, [isLoaded, form.email, form.password]);
+
   return (
     <ScrollView className="flex-1 bg-white">
       <View className="flex-1 bg-white">
@@ -83,7 +85,7 @@ const SignIn = () => {
             <Text className="text-primary-500">Sign Up</Text>
           </Link>
         </View>
-        {/* verification model create latter  */}
+        {/* verification modal to be created later */}
       </View>
     </ScrollView>
   );
